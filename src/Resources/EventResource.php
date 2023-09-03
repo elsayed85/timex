@@ -58,22 +58,22 @@ class EventResource extends Resource
         return config('timex.resources.slug');
     }
 
-    protected static function getNavigationGroup(): ?string
+    public static function getNavigationGroup(): ?string
     {
         return config('timex.pages.group');
     }
 
-    protected static function getNavigationSort(): ?int
+    public static function getNavigationSort(): ?int
     {
         return config('timex.resources.sort',1);
     }
 
-    protected static function getNavigationIcon(): string
+    public static function getNavigationIcon(): string
     {
         return config('timex.resources.icon');
     }
 
-    protected static function shouldRegisterNavigation(): bool
+    public static function shouldRegisterNavigation(): bool
     {
         if (!config('timex.resources.shouldRegisterNavigation')){
             return false;
@@ -85,7 +85,7 @@ class EventResource extends Resource
         return true;
     }
 
-    public static function form(Form $form): Form
+    public static function form(\Filament\Forms\Form $form): \Filament\Forms\Form
     {
         return $form
             ->schema([
@@ -326,7 +326,7 @@ class EventResource extends Resource
         ];
     }
 
-    public static function table(Table $table): Table
+    public static function table(\Filament\Tables\Table $table): \Filament\Tables\Table
     {
         return $table
             ->columns([
