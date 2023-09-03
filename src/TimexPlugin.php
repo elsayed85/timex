@@ -2,6 +2,7 @@
 
 namespace Buildix\Timex;
 
+use Buildix\Timex\Resources\EventResource;
 use Filament\Contracts\Plugin;
 use Filament\FilamentManager;
 use Filament\Panel;
@@ -20,7 +21,9 @@ class TimexPlugin implements Plugin
 
     public function register(Panel $panel): void
     {
-        //
+        $panel->resources([
+            EventResource::class
+        ]);
     }
 
     public function boot(Panel $panel): void
