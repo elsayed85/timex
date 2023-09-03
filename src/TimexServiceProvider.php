@@ -6,25 +6,21 @@ use BladeUI\Icons\Factory;
 use Buildix\Timex\Calendar\Day;
 use Buildix\Timex\Calendar\Event;
 use Buildix\Timex\Calendar\EventList;
-use Buildix\Timex\Calendar\EventView;
 use Buildix\Timex\Calendar\Header;
 use Buildix\Timex\Calendar\Month;
 use Buildix\Timex\Calendar\Week;
 use Buildix\Timex\Commands\MakeAttachmentsTableCommand;
-use Buildix\Timex\Commands\SetTableNameCommand;
 use Buildix\Timex\Widgets\Mini\DayWidget;
 use Buildix\Timex\Widgets\Mini\EventWidget;
 use Filament\Facades\Filament;
-use Filament\PluginServiceProvider;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\View\View;
 use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Buildix\Timex\Commands\TimexCommand;
 
-class TimexServiceProvider extends PluginServiceProvider
+class TimexServiceProvider extends PackageServiceProvider
 {
     protected array $scripts = [
       'timex' => __DIR__.'/../resources/dist/timex.js'
@@ -34,13 +30,10 @@ class TimexServiceProvider extends PluginServiceProvider
       'timex' => __DIR__.'/../resources/dist/timex.css'
     ];
 
+    public static string $name = 'timex';
+
     public function configurePackage(Package $package): void
     {
-        /*
-         * This class is a Package Service Provider
-         *
-         * More info: https://github.com/spatie/laravel-package-tools
-         */
         $package
             ->name('timex')
             ->hasConfigFile()
