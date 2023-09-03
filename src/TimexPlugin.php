@@ -24,6 +24,7 @@ class TimexPlugin implements Plugin
         $panel->resources([
             EventResource::class
         ]);
+
     }
 
     public function boot(Panel $panel): void
